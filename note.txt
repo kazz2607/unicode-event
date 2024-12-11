@@ -1,4 +1,4 @@
-4 cách lắng nghe Model Event
+* 4 cách lắng nghe Model Event
 
 1. Viết trực tiếp trong ServiceProvider
 
@@ -7,3 +7,9 @@
 3. Sử dụng Model ObServer
 
 4. Sử dụng Events và Listener
+
+* Custom Model Events
+
+1. Block User => Gửi email cho User
+
+2. Confirm User => Gửi email

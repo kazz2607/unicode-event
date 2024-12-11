@@ -6,8 +6,10 @@ use App\Models\User;
 use App\Events\OrderPayment;
 use App\Events\UserUpdateEvent;
 use App\Observers\UserObserver;
+use App\Events\UserBlockedEvent;
 use App\Listeners\UserUpdateListener;
 use Illuminate\Support\Facades\Event;
+use App\Listeners\UserBlockedListener;
 use Illuminate\Auth\Events\Registered;
 use App\Listeners\SendEmailAfterOrderPayment;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -31,6 +33,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         UserUpdateEvent::class =>[
             UserUpdateListener::class,
+        ],
+        UserBlockedEvent::class =>[
+            UserBlockedListener::class,
         ],
     ];
 

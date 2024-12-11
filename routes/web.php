@@ -37,8 +37,11 @@ Route::get('order/create', function(){
 Route::get('users/create', function(){
     // $user = new User();
     $user = User::find(8);
-    $user->name = 'Nguyễn Anh Tuấn';
-    $user->email = 'kairu2607@gmail.com';
-    $user->password = Hash::make('123456');
-    $user->save();
+    // $user->name = 'Nguyễn Anh Tuấn';
+    // $user->email = 'kairu2607@gmail.com';
+    // $user->password = Hash::make('123456');
+    // $user->save();
+
+    // $user->block();
+    $user->confirmed();
 });

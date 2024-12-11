@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Events\UserUpdateEvent;
+use App\Events\UserBlockedEvent;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -46,5 +47,18 @@ class User extends Authenticatable
 
     protected $dispatchesEvents = [
         'updated' => UserUpdateEvent::class,
+        'blocked' => UserBlockedEvent::class,
     ];
+
+    public function block(){
+        $this->setAttribute('status', 0);
+        $this->fireModelEvent('blocked');
+        $this->save();
+    }
+
+    public function confirm(){
+        $this->setAttribute('status', 1);
+        $this->fireModelEvent('confirmed');
+        $this->save();
+    }
 }

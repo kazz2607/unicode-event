@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:8889
--- Thời gian đã tạo: Th12 11, 2024 lúc 03:22 PM
+-- Thời gian đã tạo: Th12 11, 2024 lúc 03:58 PM
 -- Phiên bản máy phục vụ: 5.7.39
 -- Phiên bản PHP: 8.2.0
 
@@ -159,6 +159,7 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -167,8 +168,8 @@ CREATE TABLE `users` (
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(8, 'Nguyễn Anh Tuấn', 'kairu2607@gmail.com', NULL, '$2y$12$blddzk7hDcUAM92tsTkKyOQxn0ZdXa0JGffUV0/zNyMFgO8uL4EyW', NULL, '2024-12-11 08:04:54', '2024-12-11 08:21:32');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `status`, `created_at`, `updated_at`) VALUES
+(8, 'Nguyễn Anh Tuấn', 'kairu2607@gmail.com', NULL, '$2y$12$blddzk7hDcUAM92tsTkKyOQxn0ZdXa0JGffUV0/zNyMFgO8uL4EyW', NULL, 0, '2024-12-11 08:04:54', '2024-12-11 08:53:32');
 
 --
 -- Chỉ mục cho các bảng đã đổ
