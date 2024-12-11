@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\User;
 use App\Models\Order;
 use App\Events\OrderPayment;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
 
@@ -30,4 +32,12 @@ Route::get('order/create', function(){
     // OrderPayment::dispatch($order);
     // event(new OrderPayment($order));
     Event::dispatch(new OrderPayment($order));
+});
+
+Route::get('users/create', function(){
+    $user = new User();
+    $user->name = 'Nguyễn Tuấn';
+    $user->email = 'kairu2607@gmail.com';
+    $user->password = Hash::make('123456');
+    $user->save();
 });
