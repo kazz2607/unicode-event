@@ -6,7 +6,7 @@ use App\Events\OrderPayment;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class SendEmailAfterOrderPayment
+class SendEmailAfterOrderPayment implements ShouldQueue
 {
     /**
      * Create the event listener.
@@ -21,6 +21,7 @@ class SendEmailAfterOrderPayment
      */
     public function handle(OrderPayment $event)
     {
+        sleep(10);
         // Xử lý Logic gửi Email
         // Amount
         $amount = $event->order->amount;
@@ -28,9 +29,9 @@ class SendEmailAfterOrderPayment
 
         $content =  "Amount : $amount \nNote: $note";
 
-        dd($event->order);
+        // dd($event->order);
 
         // Viết logic gửi email
-        file_put_contents('./data.txt', $content);
+        file_put_contents(base_path().'/data.txt', $content);
     }
 }
