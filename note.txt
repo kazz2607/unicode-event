@@ -1,0 +1,9 @@
+4 cách lắng nghe Model Event
+
+1. Viết trực tiếp trong ServiceProvider
+
+2. Tách ra thành file riêng => Sau đó gọi vào ServiceProvider
+
+3. Sử dụng Model ObServer
+
+4. Sử dụng Events và Listener

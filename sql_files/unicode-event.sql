@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:8889
--- Thời gian đã tạo: Th12 11, 2024 lúc 02:43 PM
+-- Thời gian đã tạo: Th12 11, 2024 lúc 03:22 PM
 -- Phiên bản máy phục vụ: 5.7.39
 -- Phiên bản PHP: 8.2.0
 
@@ -168,7 +168,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(7, 'Nguyễn Tuấn', 'kairu2607@gmail.com', NULL, '$2y$12$uk9L9vvG98Qp/RxgEfXC5.1UEEqj/9JnecJ1Ute.heKWtKG0he64W', NULL, '2024-12-11 07:42:29', '2024-12-11 07:42:29');
+(8, 'Nguyễn Anh Tuấn', 'kairu2607@gmail.com', NULL, '$2y$12$blddzk7hDcUAM92tsTkKyOQxn0ZdXa0JGffUV0/zNyMFgO8uL4EyW', NULL, '2024-12-11 08:04:54', '2024-12-11 08:21:32');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -259,7 +259,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

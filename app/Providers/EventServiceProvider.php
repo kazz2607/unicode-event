@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use App\Events\OrderPayment;
+use App\Events\UserUpdateEvent;
+use App\Observers\UserObserver;
+use App\Listeners\UserUpdateListener;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use App\Listeners\SendEmailAfterOrderPayment;
@@ -25,6 +29,9 @@ class EventServiceProvider extends ServiceProvider
         OrderPayment::class =>[
             SendEmailAfterOrderPayment::class,
         ],
+        UserUpdateEvent::class =>[
+            UserUpdateListener::class,
+        ],
     ];
 
     /**
@@ -32,7 +39,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // User::observe(new UserObserver);
     }
 
     /**
