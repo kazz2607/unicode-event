@@ -21,7 +21,16 @@ class SendEmailAfterOrderPayment
      */
     public function handle(OrderPayment $event)
     {
-        // Logic
-        return false;
+        // Xử lý Logic gửi Email
+        // Amount
+        $amount = $event->order->amount;
+        $note = $event->order->note;
+
+        $content =  "Amount : $amount \nNote: $note";
+
+        dd($event->order);
+
+        // Viết logic gửi email
+        file_put_contents('./data.txt', $content);
     }
 }

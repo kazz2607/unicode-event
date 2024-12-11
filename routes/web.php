@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Order;
+use App\Events\OrderPayment;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +18,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('order/create', function(){
+    $order = new Order;
+    $order->amount = 12000;
+    $order->note = 'Gọi điện giờ hành chính';
+    $order->save();
+
+    // Dispatch Event
+    // OrderPayment::dispatch($order);
+    // event(new OrderPayment($order));
+    Event::dispatch(new OrderPayment($order));
 });
